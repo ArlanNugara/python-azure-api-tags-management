@@ -61,6 +61,6 @@ stages:
               today=`date +%F`
               now=`date +"%H-%M-%S"`
               ls -ltrh
-              az storage blob upload --account-name $(SA_NAME) --container-name "$(CONTAINER_NAME)/Audit-$today" --account-key $(ARM_ACCESS_KEY) --file "$(Build.SourcesDirectory)/tags.xlsx" --name "${{ parameters.SCOPE }}-$(UpdatesFileName)-$today-$now-$(FILENAME)" --overwrite true
+              az storage blob upload --account-name $(SA_NAME) --container-name "$(CONTAINER_NAME)/Audit-$today" --account-key $(ARM_ACCESS_KEY) --file "$(Build.SourcesDirectory)/tags.xlsx" --name "${{ parameters.SCOPE }}-$(UpdatesFileNamePrefix)-$today-$now-$(FILENAME)" --overwrite true
         
         

@@ -48,4 +48,4 @@ stages:
               export ARM_SUBSCRIPTION_ID=$(ARM_SUBSCRIPTION_ID)
               today=`date +%F`
               ls -ltrh
-              az storage blob upload --account-name $(SA_NAME) --container-name "$(CONTAINER_NAME)/Report-$today" --account-key $(ARM_ACCESS_KEY) --file "$(Build.SourcesDirectory)/Reports.xlsx" --name "$(ReportsFileName)-$(ARM_SUBSCRIPTION_ID)-$today.xlsx" --overwrite true        
+              az storage blob upload --account-name $(SA_NAME) --container-name "$(CONTAINER_NAME)/Report-$today" --account-key $(ARM_ACCESS_KEY) --file "$(Build.SourcesDirectory)/Reports.xlsx" --name "$(ReportsFileNamePrefix)-$(ARM_SUBSCRIPTION_ID)-$today.xlsx" --overwrite true        

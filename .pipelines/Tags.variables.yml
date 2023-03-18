@@ -10,16 +10,16 @@ variables:
   ### ARM_ACCESS_KEY
   ### SA_NAME
   ### CONTAINER_NAME
-  - group: MyVG
+  - group: <VariableGroup>
 
   ## Name of the Azure DevOps Service Connection.
   - name: SERVICECONNECTION
-    value: MySC
+    value: <ServiceConnection>
   
   ## Name of the Reports File
-  - name: ReportsFileName
-    value: All-Tags-Report
+  - name: ReportsFileNamePrefix
+    value: <ReportsFileNamePrefix>
   
   ## Name of the Updated File
-  - name: UpdatesFileName
-    value: All-Tags-Update
+  - name: UpdatesFileNamePrefix
+    value: <UpdatesFileNamePrefix>
