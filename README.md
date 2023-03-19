@@ -7,6 +7,10 @@ If this is your first time using git, you will need to tell it your name and ema
 
 `git config --global user.email you@example.com`
 
+# Introduction
+
+Coming Soon..
+
 # Requirements in Azure
 
 * A Storage Account
@@ -115,7 +119,9 @@ Note: Repeat the above steps if you have more than one subscription.
 * Click on **Continue** button
 * Click on **Save** button from **Run** Dropdown menu.
 
-Note: Repeat the step for Tags Update Pipeline. Choose the file path as **/.pipelines/resource-tag-update.yml**
+Note: Repeat the step for Tags Update Pipeline. Choose the file path as **/.pipelines/resource-tag-update.yml**.
+
+Note : Add 2 variables in the update pipeline named **FILENAME** and **DATE**
 
 # Get Azure Tags
 
@@ -139,7 +145,7 @@ This is the general idea how the process works within the Pipeline and Python
 * Select the Azure Tags Report Pipeline
 * Click **Run pipeline**
 
-Note: For first time user the Pipeline will require authorization for accessing the Variable Group. Athorize the same while runnign the pipeline for the first time.
+Note: For first time user the Pipeline will require authorization for accessing the Variable Group. Authorize the same while runnign the pipeline for the first time.
 
 ## Get the Report
 
@@ -171,6 +177,27 @@ This is the general idea how the process works in Pipeline and Python.
 
 ![image](./images/update-tags.png)
 
-## Update the Tags
+### Update the Excel Sheet
 
-Coming Soon...
+* Download the Excel file from Storage Account Container
+* Edit the sheet to replace / merge / delete tags. This takes a json value. You can put value in all 3 columns. Ex -
+```
+{
+    "name" : "MyResource",
+    "type" : "Network",
+    "env" : "Dev"
+}
+```
+* Upload the Excel sheet in Storage Account Container named as **Update-<DATE>**. No spaces in filename allowed.
+
+### Run the Pipeline
+
+* Click on **Pipelines**
+* Select the Azure Tags Update Pipeline
+* Click **Run pipeline**
+* Select the Scope as Subscription / ResourceGroup / Resource.
+* Click on **Variable**
+* Provide the uploaded excel file name and <DATE> from above step.
+* Run the Pipeline.
+
+Note :: The Pipeline will upload the updated excel file with Audit sheet for changes in the same storage account container with folder named **Audit-<DATE>**
