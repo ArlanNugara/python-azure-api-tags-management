@@ -34,7 +34,6 @@ stages:
               export ARM_TENANT_ID=$(ARM_TENANT_ID)
               export ARM_SUBSCRIPTION_ID=$(ARM_SUBSCRIPTION_ID)
               python3 main.py "Azure" "get" $(ARM_SUBSCRIPTION_ID)
-              ls -ltrh
         - task: AzureCLI@2
           displayName: 'Upload Excel File'
           inputs:
